@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,15 +10,15 @@
     <style>
         :root {
             --bg: #080b12;
-            --bg-secondary: #0d111a;
             --card: rgba(18, 23, 35, 0.82);
             --card-hover: rgba(23, 29, 43, 0.95);
+
             --border: rgba(255, 255, 255, 0.08);
             --border-strong: rgba(255, 255, 255, 0.14);
 
             --accent: #5865f2;
             --accent-light: #7289da;
-            --accent-glow: rgba(88, 101, 242, 0.22);
+            --accent-glow: rgba(88, 101, 242, 0.18);
 
             --green: #43d17a;
             --yellow: #f4c95d;
@@ -80,8 +81,8 @@
         }
 
         /* =========================================
-           FLOATING SECTION NAVIGATION
-        ========================================= */
+           FLOATING NAVIGATION
+        ========================================== */
 
         .floating-nav {
             position: fixed;
@@ -89,17 +90,17 @@
             top: 50%;
             transform: translateY(-50%);
 
-            width: 58px;
-            padding: 7px;
+            width: 190px;
+            max-height: calc(100vh - 40px);
+            padding: 8px;
 
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 3px;
 
-            background: rgba(12, 16, 25, 0.72);
+            background: rgba(12, 16, 25, 0.74);
             border: 1px solid rgba(255, 255, 255, 0.08);
-
-            border-radius: 18px;
+            border-radius: 20px;
 
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
@@ -108,128 +109,96 @@
                 0 20px 45px rgba(0, 0, 0, 0.35),
                 inset 0 1px 0 rgba(255, 255, 255, 0.03);
 
+            overflow-y: auto;
             z-index: 1000;
         }
 
         .floating-nav a {
             position: relative;
 
-            width: 42px;
-            height: 42px;
-
             display: flex;
             align-items: center;
-            justify-content: center;
 
-            border-radius: 12px;
+            min-height: 39px;
+            padding: 0 13px 0 16px;
+
+            border-radius: 11px;
 
             color: var(--text-muted);
-
-            font-size: 14px;
-            font-weight: 700;
+            font-size: 0.78rem;
+            font-weight: 600;
 
             text-decoration: none;
 
             transition:
                 background 0.22s ease,
                 color 0.22s ease,
-                transform 0.22s ease,
-                box-shadow 0.22s ease;
+                box-shadow 0.22s ease,
+                transform 0.22s ease;
         }
 
         .floating-nav a:hover {
             color: var(--text);
-            background: rgba(255, 255, 255, 0.055);
-            transform: translateX(2px);
+            background: rgba(255, 255, 255, 0.045);
         }
 
         .floating-nav a.active {
-            color: white;
+            color: #ffffff;
 
             background:
                 linear-gradient(
-                    145deg,
-                    rgba(88, 101, 242, 0.32),
-                    rgba(88, 101, 242, 0.12)
+                    135deg,
+                    rgba(88, 101, 242, 0.28),
+                    rgba(88, 101, 242, 0.10)
                 );
 
             box-shadow:
-                inset 0 0 0 1px rgba(88, 101, 242, 0.34),
-                0 0 18px rgba(88, 101, 242, 0.16);
+                inset 0 0 0 1px rgba(88, 101, 242, 0.28),
+                0 0 20px rgba(88, 101, 242, 0.10);
 
-            transform: scale(1.03);
+            transform: translateX(2px);
         }
 
         .floating-nav a.active::before {
             content: "";
 
             position: absolute;
-            left: -4px;
+            left: 5px;
 
             width: 3px;
-            height: 20px;
+            height: 19px;
 
             border-radius: 999px;
 
             background: var(--accent);
 
             box-shadow:
-                0 0 10px rgba(88, 101, 242, 0.8);
+                0 0 10px rgba(88, 101, 242, 0.75);
         }
 
-        /* Tooltip */
-
-        .floating-nav a::after {
-            content: attr(data-label);
-
-            position: absolute;
-            left: 53px;
-
-            white-space: nowrap;
-
-            background: rgba(10, 13, 20, 0.96);
-            border: 1px solid var(--border);
-
-            color: var(--text);
-
-            padding: 6px 9px;
-
-            border-radius: 8px;
-
-            font-size: 0.72rem;
-            font-weight: 600;
-
-            opacity: 0;
-            pointer-events: none;
-
-            transform: translateX(-5px);
-
-            transition:
-                opacity 0.18s ease,
-                transform 0.18s ease;
-
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        .floating-nav::-webkit-scrollbar {
+            width: 4px;
         }
 
-        .floating-nav a:hover::after {
-            opacity: 1;
-            transform: translateX(0);
+        .floating-nav::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .floating-nav::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.08);
+            border-radius: 999px;
         }
 
         /* =========================================
-           MAIN CONTENT
-        ========================================= */
+           MAIN
+        ========================================== */
 
         .main {
             width: 100%;
             max-width: 1180px;
-
             margin: 0 auto;
 
-            padding:
-                48px
-                70px
-                90px;
+            padding: 48px 70px 90px;
         }
 
         .hero {
@@ -242,10 +211,8 @@
             gap: 8px;
 
             color: var(--accent-light);
-
             font-size: 0.75rem;
             font-weight: 800;
-
             letter-spacing: 1.1px;
             text-transform: uppercase;
 
@@ -267,7 +234,6 @@
             font-size: clamp(2rem, 4vw, 3.45rem);
             line-height: 1.05;
             letter-spacing: -1.8px;
-
             margin-bottom: 18px;
         }
 
@@ -279,25 +245,19 @@
 
         /* =========================================
            STATUS CARDS
-        ========================================= */
+        ========================================== */
 
         .grid {
             display: grid;
-
-            grid-template-columns:
-                repeat(4, minmax(0, 1fr));
-
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 14px;
-
             margin: 12px 0 34px;
         }
 
         .stat {
             background: var(--card);
-
             border: 1px solid var(--border);
             border-radius: 13px;
-
             padding: 20px;
 
             box-shadow:
@@ -306,24 +266,21 @@
 
         .stat-label {
             color: var(--text-muted);
-
             font-size: 0.72rem;
             text-transform: uppercase;
-
             letter-spacing: 1px;
             font-weight: 800;
         }
 
         .stat-value {
             margin-top: 5px;
-
             font-size: 1.06rem;
             font-weight: 750;
         }
 
         /* =========================================
            SECTIONS
-        ========================================= */
+        ========================================== */
 
         .section {
             scroll-margin-top: 40px;
@@ -347,10 +304,8 @@
 
         .card {
             background: var(--card);
-
             border: 1px solid var(--border);
             border-radius: 15px;
-
             padding: 26px;
             margin-bottom: 16px;
 
@@ -389,29 +344,23 @@
 
         /* =========================================
            ARCHITECTURE
-        ========================================= */
+        ========================================== */
 
         .architecture {
             display: grid;
-
-            grid-template-columns:
-                1fr 40px 1fr 40px 1fr;
-
+            grid-template-columns: 1fr 40px 1fr 40px 1fr;
             gap: 10px;
-
             align-items: center;
         }
 
         .architecture-item {
             text-align: center;
-
             padding: 18px 10px;
 
             background:
                 rgba(255, 255, 255, 0.025);
 
             border: 1px solid var(--border);
-
             border-radius: 12px;
         }
 
@@ -422,9 +371,7 @@
 
         .architecture-item small {
             display: block;
-
             color: var(--text-muted);
-
             margin-top: 3px;
             font-size: 0.72rem;
         }
@@ -437,18 +384,14 @@
 
         /* =========================================
            CODE
-        ========================================= */
+        ========================================== */
 
         .code {
             background: var(--code);
-
             border: 1px solid var(--border);
             border-radius: 11px;
-
             padding: 17px 18px;
-
             overflow-x: auto;
-
             margin-top: 12px;
         }
 
@@ -462,7 +405,6 @@
 
             font-size: 0.83rem;
             line-height: 1.7;
-
             color: #dce3ed;
         }
 
@@ -478,28 +420,21 @@
         }
 
         .inline-code {
-            background:
-                rgba(255, 255, 255, 0.055);
-
-            border:
-                1px solid rgba(255, 255, 255, 0.07);
-
+            background: rgba(255, 255, 255, 0.055);
+            border: 1px solid rgba(255, 255, 255, 0.07);
             padding: 2px 6px;
-
             border-radius: 5px;
-
             font-size: 0.84em;
         }
 
         /* =========================================
            PILLS
-        ========================================= */
+        ========================================== */
 
         .pills {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-
             margin-top: 12px;
         }
 
@@ -507,45 +442,35 @@
             display: inline-flex;
             align-items: center;
 
-            border:
-                1px solid var(--border);
-
-            background:
-                rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.03);
 
             color: var(--text-secondary);
 
             padding: 7px 11px;
-
             border-radius: 999px;
 
             font-size: 0.8rem;
         }
 
         .pill.green {
-            border-color:
-                rgba(67, 209, 122, 0.2);
-
+            border-color: rgba(67, 209, 122, 0.2);
             color: #a3edbd;
         }
 
         .pill.yellow {
-            border-color:
-                rgba(244, 201, 93, 0.2);
-
+            border-color: rgba(244, 201, 93, 0.2);
             color: #f9df91;
         }
 
         .pill.red {
-            border-color:
-                rgba(248, 113, 113, 0.2);
-
+            border-color: rgba(248, 113, 113, 0.2);
             color: #fca5a5;
         }
 
         /* =========================================
            TABLE
-        ========================================= */
+        ========================================== */
 
         .table-wrap {
             overflow-x: auto;
@@ -559,20 +484,14 @@
         th,
         td {
             padding: 12px 10px;
-
-            border-bottom:
-                1px solid var(--border);
-
+            border-bottom: 1px solid var(--border);
             text-align: left;
-
             font-size: 0.86rem;
         }
 
         th {
             color: var(--text);
-
             font-size: 0.75rem;
-
             text-transform: uppercase;
             letter-spacing: 0.8px;
         }
@@ -583,20 +502,15 @@
 
         /* =========================================
            NOTICES
-        ========================================= */
+        ========================================== */
 
         .notice {
-            border-left:
-                3px solid var(--accent);
-
-            background:
-                rgba(88, 101, 242, 0.08);
+            border-left: 3px solid var(--accent);
+            background: rgba(88, 101, 242, 0.08);
 
             padding: 15px 17px;
 
-            border-radius:
-                0 9px 9px 0;
-
+            border-radius: 0 9px 9px 0;
             margin-top: 13px;
         }
 
@@ -606,33 +520,27 @@
 
         .warning {
             border-left-color: var(--yellow);
-
-            background:
-                rgba(244, 201, 93, 0.07);
+            background: rgba(244, 201, 93, 0.07);
         }
 
         /* =========================================
            FOOTER
-        ========================================= */
+        ========================================== */
 
         footer {
             margin-top: 70px;
-
             padding-top: 25px;
 
-            border-top:
-                1px solid var(--border);
+            border-top: 1px solid var(--border);
 
             color: var(--text-muted);
-
             font-size: 0.78rem;
-
             text-align: center;
         }
 
         /* =========================================
            MOBILE
-        ========================================= */
+        ========================================== */
 
         @media (max-width: 900px) {
 
@@ -640,33 +548,33 @@
                 left: 50%;
                 top: 18px;
 
-                transform:
-                    translateX(-50%);
+                transform: translateX(-50%);
 
                 width: auto;
+                max-width: calc(100vw - 24px);
 
                 flex-direction: row;
 
-                border-radius: 15px;
+                overflow-x: auto;
 
-                padding: 6px;
+                border-radius: 15px;
             }
 
             .floating-nav a {
-                width: 38px;
-                height: 38px;
+                white-space: nowrap;
+                min-height: 37px;
+                padding: 0 12px;
             }
 
-            .floating-nav a::after {
-                display: none;
+            .floating-nav a.active {
+                transform: none;
             }
 
             .floating-nav a.active::before {
                 left: 50%;
                 top: -3px;
 
-                transform:
-                    translateX(-50%);
+                transform: translateX(-50%);
 
                 width: 18px;
                 height: 3px;
@@ -680,8 +588,7 @@
             }
 
             .grid {
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .architecture {
@@ -714,7 +621,6 @@
 
             .floating-nav {
                 max-width: calc(100vw - 24px);
-                overflow-x: auto;
             }
         }
     </style>
@@ -722,1200 +628,799 @@
 
 <body>
 
-<!-- =========================================
-     FLOATING NAVIGATION
-========================================= -->
-
-<nav class="floating-nav">
-
-    <a href="#overview"
-       data-label="Overview"
-       class="active">
-        01
-    </a>
-
-    <a href="#architecture"
-       data-label="Architecture">
-        02
-    </a>
-
-    <a href="#files"
-       data-label="Project Files">
-        03
-    </a>
-
-    <a href="#bot"
-       data-label="Bot Features">
-        04
-    </a>
-
-    <a href="#github"
-       data-label="GitHub">
-        05
-    </a>
-
-    <a href="#oracle"
-       data-label="Oracle Cloud">
-        06
-    </a>
-
-    <a href="#service"
-       data-label="24/7 Service">
-        07
-    </a>
-
-    <a href="#commands"
-       data-label="Commands">
-        08
-    </a>
-
-    <a href="#updates"
-       data-label="Updating">
-        09
-    </a>
-
-    <a href="#logs"
-       data-label="Logs">
-        10
-    </a>
-
-    <a href="#security"
-       data-label="Security">
-        11
-    </a>
-
-    <a href="#future"
-       data-label="Future">
-        12
-    </a>
-
-</nav>
-
-
-<main class="main">
-
     <!-- =========================================
-         HERO
+         FLOATING SECTION NAVIGATION
     ========================================== -->
 
-    <header class="hero" id="overview">
+    <nav class="floating-nav">
 
-        <div class="eyebrow">
-            <span class="status-dot"></span>
-            Production Documentation
-        </div>
+        <a href="#overview" class="active">
+            Overview
+        </a>
 
-        <h1>
-            PhatzRP Discord Bot
-        </h1>
+        <a href="#architecture">
+            Architecture
+        </a>
 
-        <p>
-            Technical documentation for the custom PhatzRP Discord bot,
-            covering its architecture, hosting environment, development
-            workflow, maintenance commands, security practices and future
-            integrations.
-        </p>
+        <a href="#files">
+            Project Files
+        </a>
 
-    </header>
+        <a href="#bot">
+            Bot Features
+        </a>
+
+        <a href="#github">
+            GitHub
+        </a>
+
+        <a href="#oracle">
+            Oracle Cloud
+        </a>
+
+        <a href="#service">
+            24/7 Service
+        </a>
+
+        <a href="#commands">
+            Commands
+        </a>
+
+        <a href="#updates">
+            Updating
+        </a>
+
+        <a href="#logs">
+            Logs
+        </a>
+
+        <a href="#security">
+            Security
+        </a>
+
+        <a href="#future">
+            Future Development
+        </a>
+
+    </nav>
 
 
-    <!-- =========================================
-         STATUS
-    ========================================== -->
+    <main class="main">
 
-    <div class="grid">
+        <!-- HERO -->
 
-        <div class="stat">
-            <div class="stat-label">
-                Runtime
+        <header class="hero" id="overview">
+
+            <div class="eyebrow">
+                <span class="status-dot"></span>
+                Production Documentation
             </div>
 
-            <div class="stat-value">
-                Node.js 24.19.0
-            </div>
-        </div>
-
-        <div class="stat">
-            <div class="stat-label">
-                Operating System
-            </div>
-
-            <div class="stat-value">
-                Ubuntu 24.04
-            </div>
-        </div>
-
-        <div class="stat">
-            <div class="stat-label">
-                Hosting
-            </div>
-
-            <div class="stat-value">
-                Oracle Cloud
-            </div>
-        </div>
-
-        <div class="stat">
-            <div class="stat-label">
-                Process Manager
-            </div>
-
-            <div class="stat-value">
-                systemd
-            </div>
-        </div>
-
-    </div>
-
-
-    <!-- =========================================
-         OVERVIEW
-    ========================================== -->
-
-    <section class="section">
-
-        <div class="section-header">
-
-            <h2>
-                What We Built
-            </h2>
+            <h1>
+                PhatzRP Discord Bot
+            </h1>
 
             <p>
-                The bot began as a Node.js project on a Windows development PC.
-                GitHub stores the source code, while an Oracle Cloud Ubuntu
-                server runs the live production bot 24/7.
+                Technical documentation for the custom PhatzRP Discord bot,
+                covering its architecture, hosting environment, development
+                workflow, maintenance commands, security practices and future
+                integrations.
             </p>
 
-        </div>
+        </header>
 
-        <div class="card">
 
-            <h3>
-                In simple terms
-            </h3>
+        <!-- STATUS -->
 
-            <p>
-                The Windows PC is where the bot is developed.
-                GitHub is the source-code repository.
-                Oracle Cloud is the computer that keeps the live bot running.
-                Discord is where the bot operates.
-            </p>
+        <div class="grid">
 
-            <div class="notice">
+            <div class="stat">
+                <div class="stat-label">Runtime</div>
+                <div class="stat-value">Node.js 24.19.0</div>
+            </div>
 
-                <strong>
-                    Important:
-                </strong>
+            <div class="stat">
+                <div class="stat-label">Operating System</div>
+                <div class="stat-value">Ubuntu 24.04</div>
+            </div>
 
-                Your PC does not need to stay on for the bot to remain online.
+            <div class="stat">
+                <div class="stat-label">Hosting</div>
+                <div class="stat-value">Oracle Cloud</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-label">Process Manager</div>
+                <div class="stat-value">systemd</div>
             </div>
 
         </div>
 
-    </section>
 
+        <!-- OVERVIEW -->
 
-    <!-- =========================================
-         ARCHITECTURE
-    ========================================== -->
+        <section class="section">
 
-    <section class="section" id="architecture">
+            <div class="section-header">
+                <h2>What We Built</h2>
 
-        <div class="section-header">
+                <p>
+                    The bot began as a Node.js project on a Windows development
+                    PC. GitHub stores the source code, while an Oracle Cloud
+                    Ubuntu server runs the live production bot 24/7.
+                </p>
+            </div>
 
-            <h2>
-                System Architecture
-            </h2>
+            <div class="card">
 
-            <p>
-                The major components that make the bot work together.
-            </p>
+                <h3>In simple terms</h3>
 
-        </div>
+                <p>
+                    The Windows PC is where the bot is developed.
+                    GitHub is the source-code repository.
+                    Oracle Cloud is the computer that keeps the live bot running.
+                    Discord is where the bot operates.
+                </p>
 
-        <div class="card">
-
-            <div class="architecture">
-
-                <div class="architecture-item">
-                    <strong>
-                        Windows PC
-                    </strong>
-
-                    <small>
-                        Development
-                    </small>
-                </div>
-
-                <div class="arrow">
-                    →
-                </div>
-
-                <div class="architecture-item">
-                    <strong>
-                        GitHub
-                    </strong>
-
-                    <small>
-                        Source code
-                    </small>
-                </div>
-
-                <div class="arrow">
-                    →
-                </div>
-
-                <div class="architecture-item">
-                    <strong>
-                        Oracle Cloud
-                    </strong>
-
-                    <small>
-                        Live server
-                    </small>
+                <div class="notice">
+                    <strong>Important:</strong>
+                    Your PC does not need to stay on for the bot to remain online.
                 </div>
 
             </div>
 
-            <br>
+        </section>
 
-            <div class="architecture">
 
-                <div class="architecture-item">
-                    <strong>
-                        Ubuntu
-                    </strong>
+        <!-- ARCHITECTURE -->
 
-                    <small>
-                        Operating system
-                    </small>
+        <section class="section" id="architecture">
+
+            <div class="section-header">
+                <h2>System Architecture</h2>
+
+                <p>
+                    The major components that make the bot work together.
+                </p>
+            </div>
+
+            <div class="card">
+
+                <div class="architecture">
+
+                    <div class="architecture-item">
+                        <strong>Windows PC</strong>
+                        <small>Development</small>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <div class="architecture-item">
+                        <strong>GitHub</strong>
+                        <small>Source code</small>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <div class="architecture-item">
+                        <strong>Oracle Cloud</strong>
+                        <small>Live server</small>
+                    </div>
+
                 </div>
 
-                <div class="arrow">
-                    →
-                </div>
+                <br>
 
-                <div class="architecture-item">
-                    <strong>
-                        Node.js
-                    </strong>
+                <div class="architecture">
 
-                    <small>
-                        Runs the bot
-                    </small>
-                </div>
+                    <div class="architecture-item">
+                        <strong>Ubuntu</strong>
+                        <small>Operating system</small>
+                    </div>
 
-                <div class="arrow">
-                    →
-                </div>
+                    <div class="arrow">→</div>
 
-                <div class="architecture-item">
-                    <strong>
-                        Discord
-                    </strong>
+                    <div class="architecture-item">
+                        <strong>Node.js</strong>
+                        <small>Runs the bot</small>
+                    </div>
 
-                    <small>
-                        Bot platform
-                    </small>
+                    <div class="arrow">→</div>
+
+                    <div class="architecture-item">
+                        <strong>Discord</strong>
+                        <small>Bot platform</small>
+                    </div>
+
                 </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =========================================
-         FILES
-    ========================================== -->
+        <!-- FILES -->
 
-    <section class="section" id="files">
+        <section class="section" id="files">
 
-        <div class="section-header">
+            <div class="section-header">
+                <h2>Project Files</h2>
 
-            <h2>
-                Project Files
-            </h2>
+                <p>
+                    The main files that make up the bot project.
+                </p>
+            </div>
 
-            <p>
-                The main files that make up the bot project.
-            </p>
+            <div class="card">
 
-        </div>
+                <div class="table-wrap">
 
-        <div class="card">
+                    <table>
 
-            <div class="table-wrap">
+                        <thead>
+                            <tr>
+                                <th>File / Folder</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
 
-                <table>
+                        <tbody>
 
-                    <thead>
+                            <tr>
+                                <td><code>index.js</code></td>
+                                <td>Main bot program and command handling.</td>
+                            </tr>
 
-                        <tr>
-                            <th>
-                                File / Folder
-                            </th>
+                            <tr>
+                                <td><code>deploy-commands.js</code></td>
+                                <td>Registers Discord slash commands.</td>
+                            </tr>
 
-                            <th>
-                                Purpose
-                            </th>
-                        </tr>
+                            <tr>
+                                <td><code>package.json</code></td>
+                                <td>Defines the Node.js project and dependencies.</td>
+                            </tr>
 
-                    </thead>
+                            <tr>
+                                <td><code>package-lock.json</code></td>
+                                <td>Records dependency versions.</td>
+                            </tr>
 
-                    <tbody>
+                            <tr>
+                                <td><code>.env</code></td>
+                                <td>Private credentials and configuration.</td>
+                            </tr>
 
-                        <tr>
-                            <td>
-                                <code>index.js</code>
-                            </td>
+                            <tr>
+                                <td><code>.gitignore</code></td>
+                                <td>Prevents sensitive/generated files being uploaded.</td>
+                            </tr>
 
-                            <td>
-                                Main bot program and command handling.
-                            </td>
-                        </tr>
+                            <tr>
+                                <td><code>node_modules/</code></td>
+                                <td>Installed Node.js dependencies.</td>
+                            </tr>
 
-                        <tr>
-                            <td>
-                                <code>deploy-commands.js</code>
-                            </td>
+                        </tbody>
 
-                            <td>
-                                Registers Discord slash commands.
-                            </td>
-                        </tr>
+                    </table>
 
-                        <tr>
-                            <td>
-                                <code>package.json</code>
-                            </td>
-
-                            <td>
-                                Defines the Node.js project and dependencies.
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <code>package-lock.json</code>
-                            </td>
-
-                            <td>
-                                Records dependency versions.
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <code>.env</code>
-                            </td>
-
-                            <td>
-                                Private credentials and configuration.
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <code>.gitignore</code>
-                            </td>
-
-                            <td>
-                                Prevents sensitive/generated files being uploaded.
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <code>node_modules/</code>
-                            </td>
-
-                            <td>
-                                Installed Node.js dependencies.
-                            </td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
+                </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =========================================
-         BOT
-    ========================================== -->
+        <!-- BOT FEATURES -->
 
-    <section class="section" id="bot">
+        <section class="section" id="bot">
 
-        <div class="section-header">
+            <div class="section-header">
+                <h2>Bot Features</h2>
 
-            <h2>
-                Bot Features
-            </h2>
+                <p>
+                    Current commands implemented in the Discord bot.
+                </p>
+            </div>
 
-            <p>
-                Current commands implemented in the Discord bot.
-            </p>
+            <div class="card">
 
-        </div>
+                <h3>/warn</h3>
 
-        <div class="card">
+                <p>
+                    Staff moderation command for issuing a warning.
+                    Persistent database storage is planned for future development.
+                </p>
 
-            <h3>
-                /warn
-            </h3>
-
-            <p>
-                Staff moderation command for issuing a warning.
-                Persistent database storage is planned for future development.
-            </p>
-
-            <div class="pills">
-
-                <span class="pill green">
-                    Implemented
-                </span>
-
-                <span class="pill">
-                    Staff only
-                </span>
+                <div class="pills">
+                    <span class="pill green">Implemented</span>
+                    <span class="pill">Staff only</span>
+                </div>
 
             </div>
 
-        </div>
+            <div class="card">
 
+                <h3>/ban</h3>
 
-        <div class="card">
+                <p>
+                    Staff moderation command intended for recording or processing
+                    player bans. Qbox and FiveM integration is planned.
+                </p>
 
-            <h3>
-                /ban
-            </h3>
-
-            <p>
-                Staff moderation command intended for recording or processing
-                player bans. Qbox and FiveM integration is planned.
-            </p>
-
-            <div class="pills">
-
-                <span class="pill green">
-                    Implemented
-                </span>
-
-                <span class="pill">
-                    Staff only
-                </span>
+                <div class="pills">
+                    <span class="pill green">Implemented</span>
+                    <span class="pill">Staff only</span>
+                </div>
 
             </div>
 
-        </div>
+            <div class="card">
 
+                <h3>/playerhistory</h3>
 
-        <div class="card">
+                <p>
+                    Staff command intended to provide a central view of a player's
+                    moderation history without searching through individual
+                    Discord channels.
+                </p>
 
-            <h3>
-                /playerhistory
-            </h3>
-
-            <p>
-                Staff command intended to provide a central view of a player's
-                moderation history without searching through individual
-                Discord channels.
-            </p>
-
-            <div class="pills">
-
-                <span class="pill green">
-                    Framework implemented
-                </span>
-
-                <span class="pill yellow">
-                    Database planned
-                </span>
+                <div class="pills">
+                    <span class="pill green">Framework implemented</span>
+                    <span class="pill yellow">Database planned</span>
+                </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =========================================
-         GITHUB
-    ========================================== -->
+        <!-- GITHUB -->
 
-    <section class="section" id="github">
+        <section class="section" id="github">
 
-        <div class="section-header">
+            <div class="section-header">
+                <h2>GitHub</h2>
 
-            <h2>
-                GitHub
-            </h2>
+                <p>
+                    GitHub stores the source code for the live bot.
+                </p>
+            </div>
 
-            <p>
-                GitHub stores the source code for the live bot.
-            </p>
+            <div class="card">
 
-        </div>
+                <h3>Repository</h3>
 
+                <p>
+                    The production bot repository is private and contains
+                    the bot source code.
+                </p>
 
-        <div class="card">
-
-            <h3>
-                Repository
-            </h3>
-
-            <p>
-                The production bot repository is private and contains
-                the bot source code.
-            </p>
-
-            <div class="code">
-
+                <div class="code">
 <pre>phatzrp-discord-bot/
 ├── .gitignore
 ├── deploy-commands.js
 ├── index.js
 ├── package.json
 └── package-lock.json</pre>
+                </div>
+
+                <div class="notice warning">
+                    <strong>Never commit secrets.</strong>
+                    The <code>.env</code> file and private SSH keys must never
+                    be uploaded to GitHub.
+                </div>
 
             </div>
 
-            <div class="notice warning">
+            <div class="card">
 
-                <strong>
-                    Never commit secrets.
-                </strong>
+                <h3>Deploy Key</h3>
 
-                The <code>.env</code> file and private SSH keys must never
-                be uploaded to GitHub.
-            </div>
+                <p>
+                    Oracle has a dedicated GitHub Deploy Key allowing the server
+                    to read the private repository without giving it access to
+                    the entire GitHub account.
+                </p>
 
-        </div>
-
-
-        <div class="card">
-
-            <h3>
-                Deploy Key
-            </h3>
-
-            <p>
-                Oracle has a dedicated GitHub Deploy Key allowing the server
-                to read the private repository without giving it access to
-                the entire GitHub account.
-            </p>
-
-            <div class="pills">
-
-                <span class="pill green">
-                    Read only
-                </span>
-
-                <span class="pill">
-                    Repository specific
-                </span>
+                <div class="pills">
+                    <span class="pill green">Read only</span>
+                    <span class="pill">Repository specific</span>
+                </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =========================================
-         ORACLE
-    ========================================== -->
+        <!-- ORACLE -->
 
-    <section class="section" id="oracle">
+        <section class="section" id="oracle">
 
-        <div class="section-header">
+            <div class="section-header">
+                <h2>Oracle Cloud Server</h2>
 
-            <h2>
-                Oracle Cloud Server
-            </h2>
+                <p>
+                    The Oracle Cloud VM is the computer actually running the
+                    production bot.
+                </p>
+            </div>
 
-            <p>
-                The Oracle Cloud VM is the computer actually running the
-                production bot.
-            </p>
+            <div class="card">
 
-        </div>
+                <div class="table-wrap">
 
-        <div class="card">
+                    <table>
 
-            <div class="table-wrap">
+                        <tbody>
 
-                <table>
+                            <tr>
+                                <td><strong>Instance</strong></td>
+                                <td>phatzrp-discord-bot</td>
+                            </tr>
 
-                    <tbody>
+                            <tr>
+                                <td><strong>Operating System</strong></td>
+                                <td>Canonical Ubuntu 24.04</td>
+                            </tr>
 
-                        <tr>
-                            <td>
-                                <strong>Instance</strong>
-                            </td>
+                            <tr>
+                                <td><strong>Shape</strong></td>
+                                <td>VM.Standard.E2.1.Micro</td>
+                            </tr>
 
-                            <td>
-                                phatzrp-discord-bot
-                            </td>
-                        </tr>
+                            <tr>
+                                <td><strong>CPU</strong></td>
+                                <td>1 OCPU</td>
+                            </tr>
 
-                        <tr>
-                            <td>
-                                <strong>Operating System</strong>
-                            </td>
+                            <tr>
+                                <td><strong>Memory</strong></td>
+                                <td>1 GB</td>
+                            </tr>
 
-                            <td>
-                                Canonical Ubuntu 24.04
-                            </td>
-                        </tr>
+                            <tr>
+                                <td><strong>Node.js</strong></td>
+                                <td>24.19.0</td>
+                            </tr>
 
-                        <tr>
-                            <td>
-                                <strong>Shape</strong>
-                            </td>
+                            <tr>
+                                <td><strong>Bot location</strong></td>
+                                <td><code>/home/ubuntu/phatzrp-discord-bot</code></td>
+                            </tr>
 
-                            <td>
-                                VM.Standard.E2.1.Micro
-                            </td>
-                        </tr>
+                        </tbody>
 
-                        <tr>
-                            <td>
-                                <strong>CPU</strong>
-                            </td>
+                    </table>
 
-                            <td>
-                                1 OCPU
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <strong>Memory</strong>
-                            </td>
-
-                            <td>
-                                1 GB
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <strong>Node.js</strong>
-                            </td>
-
-                            <td>
-                                24.19.0
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <strong>Bot location</strong>
-                            </td>
-
-                            <td>
-                                <code>/home/ubuntu/phatzrp-discord-bot</code>
-                            </td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
+                </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =========================================
-         SERVICE
-    ========================================== -->
+        <!-- SERVICE -->
 
-    <section class="section" id="service">
+        <section class="section" id="service">
 
-        <div class="section-header">
+            <div class="section-header">
+                <h2>24/7 Bot Service</h2>
 
-            <h2>
-                24/7 Bot Service
-            </h2>
+                <p>
+                    Ubuntu uses systemd to keep the bot running automatically.
+                </p>
+            </div>
 
-            <p>
-                Ubuntu uses systemd to keep the bot running automatically.
-            </p>
+            <div class="card">
 
-        </div>
+                <h3>Service name</h3>
 
-        <div class="card">
-
-            <h3>
-                Service name
-            </h3>
-
-            <div class="code">
-
+                <div class="code">
 <pre>phatzrp-bot</pre>
+                </div>
+
+                <p style="margin-top: 14px;">
+                    The service starts automatically when the server boots and
+                    restarts the bot if the Node.js process crashes.
+                </p>
+
+                <div class="pills">
+                    <span class="pill green">Auto-start</span>
+                    <span class="pill green">Auto-restart</span>
+                    <span class="pill green">24/7</span>
+                </div>
 
             </div>
 
-            <p style="margin-top: 14px;">
-                The service starts automatically when the server boots and
-                restarts the bot if the Node.js process crashes.
-            </p>
+        </section>
 
-            <div class="pills">
 
-                <span class="pill green">
-                    Auto-start
-                </span>
+        <!-- COMMANDS -->
 
-                <span class="pill green">
-                    Auto-restart
-                </span>
+        <section class="section" id="commands">
 
-                <span class="pill green">
-                    24/7
-                </span>
+            <div class="section-header">
+                <h2>Server Commands</h2>
 
+                <p>
+                    Commands used when administering the live bot.
+                </p>
             </div>
 
-        </div>
+            <div class="card">
 
-    </section>
+                <h3>Check bot status</h3>
 
-
-    <!-- =========================================
-         COMMANDS
-    ========================================== -->
-
-    <section class="section" id="commands">
-
-        <div class="section-header">
-
-            <h2>
-                Server Commands
-            </h2>
-
-            <p>
-                Commands used when administering the live bot.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <h3>
-                Check bot status
-            </h3>
-
-            <div class="code">
-
+                <div class="code">
 <pre>sudo systemctl status phatzrp-bot --no-pager</pre>
+                </div>
 
             </div>
 
-        </div>
+            <div class="card">
 
+                <h3>Start bot</h3>
 
-        <div class="card">
-
-            <h3>
-                Start bot
-            </h3>
-
-            <div class="code">
-
+                <div class="code">
 <pre>sudo systemctl start phatzrp-bot</pre>
+                </div>
 
             </div>
 
-        </div>
+            <div class="card">
 
+                <h3>Stop bot</h3>
 
-        <div class="card">
-
-            <h3>
-                Stop bot
-            </h3>
-
-            <div class="code">
-
+                <div class="code">
 <pre>sudo systemctl stop phatzrp-bot</pre>
+                </div>
 
             </div>
 
-        </div>
+            <div class="card">
 
+                <h3>Restart bot</h3>
 
-        <div class="card">
-
-            <h3>
-                Restart bot
-            </h3>
-
-            <div class="code">
-
+                <div class="code">
 <pre>sudo systemctl restart phatzrp-bot</pre>
+                </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =========================================
-         UPDATES
-    ========================================== -->
+        <!-- UPDATES -->
 
-    <section class="section" id="updates">
+        <section class="section" id="updates">
 
-        <div class="section-header">
+            <div class="section-header">
+                <h2>Updating the Bot</h2>
 
-            <h2>
-                Updating the Bot
-            </h2>
+                <p>
+                    Develop locally, push to GitHub, then deploy the changes
+                    to Oracle.
+                </p>
+            </div>
 
-            <p>
-                Develop locally, push to GitHub, then deploy the changes
-                to Oracle.
-            </p>
+            <div class="card">
 
-        </div>
+                <h3>1. Make changes locally</h3>
 
+                <p>
+                    Edit and test the bot on the Windows development PC.
+                </p>
 
-        <div class="card">
+            </div>
 
-            <h3>
-                1. Make changes locally
-            </h3>
+            <div class="card">
 
-            <p>
-                Edit and test the bot on the Windows development PC.
-            </p>
+                <h3>2. Push changes to GitHub</h3>
 
-        </div>
+                <p>
+                    Commit and push the updated code to the private repository.
+                </p>
 
+            </div>
 
-        <div class="card">
+            <div class="card">
 
-            <h3>
-                2. Push changes to GitHub
-            </h3>
+                <h3>3. Pull the changes onto Oracle</h3>
 
-            <p>
-                Commit and push the updated code to the private repository.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <h3>
-                3. Pull the changes onto Oracle
-            </h3>
-
-            <div class="code">
-
+                <div class="code">
 <pre>cd ~/phatzrp-discord-bot
 git pull</pre>
+                </div>
 
             </div>
 
-        </div>
+            <div class="card">
 
+                <h3>4. Install dependencies when required</h3>
 
-        <div class="card">
-
-            <h3>
-                4. Install dependencies when required
-            </h3>
-
-            <div class="code">
-
+                <div class="code">
 <pre>npm install</pre>
+                </div>
 
             </div>
 
-        </div>
+            <div class="card">
 
+                <h3>5. Restart production</h3>
 
-        <div class="card">
-
-            <h3>
-                5. Restart production
-            </h3>
-
-            <div class="code">
-
+                <div class="code">
 <pre>sudo systemctl restart phatzrp-bot</pre>
+                </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =========================================
-         LOGS
-    ========================================== -->
+        <!-- LOGS -->
 
-    <section class="section" id="logs">
+        <section class="section" id="logs">
 
-        <div class="section-header">
+            <div class="section-header">
+                <h2>Logs & Troubleshooting</h2>
 
-            <h2>
-                Logs & Troubleshooting
-            </h2>
+                <p>
+                    Useful commands when something isn't working.
+                </p>
+            </div>
 
-            <p>
-                Useful commands when something isn't working.
-            </p>
+            <div class="card">
 
-        </div>
+                <h3>View recent logs</h3>
 
-
-        <div class="card">
-
-            <h3>
-                View recent logs
-            </h3>
-
-            <div class="code">
-
+                <div class="code">
 <pre>sudo journalctl -u phatzrp-bot -n 50 --no-pager</pre>
+                </div>
 
             </div>
 
-        </div>
+            <div class="card">
 
+                <h3>Watch live logs</h3>
 
-        <div class="card">
-
-            <h3>
-                Watch live logs
-            </h3>
-
-            <div class="code">
-
+                <div class="code">
 <pre>sudo journalctl -u phatzrp-bot -f</pre>
+                </div>
+
+                <p style="margin-top: 12px;">
+                    Press <span class="inline-code">Ctrl + C</span>
+                    to stop viewing the live output.
+                </p>
 
             </div>
 
-            <p style="margin-top: 12px;">
-                Press
-                <span class="inline-code">Ctrl + C</span>
-                to stop viewing the live output.
-            </p>
+            <div class="notice">
 
-        </div>
-
-
-        <div class="notice">
-
-            <strong>
-                If the bot is offline:
-            </strong>
-
-            Check the service status first, then inspect the recent journal
-            logs for Node.js or configuration errors.
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================
-         SECURITY
-    ========================================== -->
-
-    <section class="section" id="security">
-
-        <div class="section-header">
-
-            <h2>
-                Security
-            </h2>
-
-            <p>
-                Sensitive credentials should never be committed to the
-                documentation repository or bot repository.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="pills">
-
-                <span class="pill red">
-                    Discord Bot Token
-                </span>
-
-                <span class="pill red">
-                    .env
-                </span>
-
-                <span class="pill red">
-                    SSH Private Keys
-                </span>
-
-                <span class="pill red">
-                    Database Passwords
-                </span>
-
-                <span class="pill red">
-                    API Keys
-                </span>
+                <strong>If the bot is offline:</strong>
+                Check the service status first, then inspect recent journal
+                logs for Node.js or configuration errors.
 
             </div>
 
-        </div>
+        </section>
 
 
-        <div class="card">
+        <!-- SECURITY -->
 
-            <h3>
-                Environment files
-            </h3>
+        <section class="section" id="security">
 
-            <p>
-                The production <code>.env</code> exists only on the Oracle
-                server. The development copy exists on the PC. Neither should
-                be stored in GitHub.
-            </p>
+            <div class="section-header">
+                <h2>Security</h2>
 
-            <div class="notice warning">
+                <p>
+                    Sensitive credentials should never be committed to the
+                    documentation repository or bot repository.
+                </p>
+            </div>
 
-                <strong>
-                    Never publish credentials.
-                </strong>
+            <div class="card">
 
-                Keep bot tokens, SSH private keys and database credentials
-                completely private.
+                <div class="pills">
+
+                    <span class="pill red">Discord Bot Token</span>
+                    <span class="pill red">.env</span>
+                    <span class="pill red">SSH Private Keys</span>
+                    <span class="pill red">Database Passwords</span>
+                    <span class="pill red">API Keys</span>
+
+                </div>
 
             </div>
 
-        </div>
+            <div class="card">
 
-    </section>
+                <h3>Environment files</h3>
 
+                <p>
+                    The production <code>.env</code> exists only on the Oracle
+                    server. The development copy exists on the PC. Neither
+                    should be stored in GitHub.
+                </p>
 
-    <!-- =========================================
-         FUTURE
-    ========================================== -->
+                <div class="notice warning">
 
-    <section class="section" id="future">
+                    <strong>Never publish credentials.</strong>
 
-        <div class="section-header">
+                    Keep bot tokens, SSH private keys and database credentials
+                    completely private.
 
-            <h2>
-                Future Development
-            </h2>
-
-            <p>
-                Planned functionality that can be added without rebuilding
-                the hosting infrastructure.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="pills">
-
-                <span class="pill yellow">
-                    Qbox Integration
-                </span>
-
-                <span class="pill yellow">
-                    FiveM Integration
-                </span>
-
-                <span class="pill yellow">
-                    FiveGuard
-                </span>
-
-                <span class="pill yellow">
-                    Database
-                </span>
-
-                <span class="pill yellow">
-                    Warning History
-                </span>
-
-                <span class="pill yellow">
-                    Ban History
-                </span>
-
-                <span class="pill yellow">
-                    Player History
-                </span>
-
-                <span class="pill yellow">
-                    Ticket System
-                </span>
+                </div>
 
             </div>
 
-        </div>
+        </section>
 
 
-        <div class="card">
+        <!-- FUTURE -->
 
-            <h3>
-                The important part
-            </h3>
+        <section class="section" id="future">
 
-            <p>
-                Future features can be added without rebuilding the hosting
-                environment. GitHub remains the source of truth while Oracle
-                remains the live production environment.
-            </p>
+            <div class="section-header">
+                <h2>Future Development</h2>
 
-        </div>
+                <p>
+                    Planned functionality that can be added without rebuilding
+                    the hosting infrastructure.
+                </p>
+            </div>
 
-    </section>
+            <div class="card">
+
+                <div class="pills">
+
+                    <span class="pill yellow">Qbox Integration</span>
+                    <span class="pill yellow">FiveM Integration</span>
+                    <span class="pill yellow">FiveGuard</span>
+                    <span class="pill yellow">Database</span>
+                    <span class="pill yellow">Warning History</span>
+                    <span class="pill yellow">Ban History</span>
+                    <span class="pill yellow">Player History</span>
+                    <span class="pill yellow">Ticket System</span>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <h3>The important part</h3>
+
+                <p>
+                    Future features can be added without rebuilding the hosting
+                    environment. GitHub remains the source of truth while
+                    Oracle remains the live production environment.
+                </p>
+
+            </div>
+
+        </section>
 
 
-    <!-- =========================================
-         QUICK REFERENCE
-    ========================================== -->
+        <!-- QUICK REFERENCE -->
 
-    <section class="section">
+        <section class="section">
 
-        <div class="section-header">
+            <div class="section-header">
 
-            <h2>
-                Quick Reference
-            </h2>
+                <h2>Quick Reference</h2>
 
-            <p>
-                The commands most likely to be needed during normal
-                administration.
-            </p>
+                <p>
+                    The commands most likely to be needed during normal
+                    administration.
+                </p>
 
-        </div>
+            </div>
 
+            <div class="card">
 
-        <div class="card">
-
-            <div class="code">
-
+                <div class="code">
 <pre># Connect to Oracle
 ssh -i "$env:USERPROFILE\.ssh\phatzrp-discord-bot" ubuntu@YOUR_PUBLIC_IP
 
@@ -1936,93 +1441,91 @@ sudo systemctl restart phatzrp-bot
 
 # View recent logs
 sudo journalctl -u phatzrp-bot -n 50 --no-pager</pre>
+                </div>
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <p>
+                Phatz Development · PhatzRP Discord Bot · Technical Documentation
+            </p>
+
+            <p style="margin-top: 5px;">
+                Documentation should be updated whenever the bot's
+                infrastructure or administration process changes.
+            </p>
+
+        </footer>
+
+    </main>
 
 
     <!-- =========================================
-         FOOTER
+         SCROLL SPY
     ========================================== -->
 
-    <footer>
+    <script>
 
-        <p>
-            Phatz Development · PhatzRP Discord Bot · Technical Documentation
-        </p>
+        const navLinks = Array.from(
+            document.querySelectorAll(".floating-nav a")
+        );
 
-        <p style="margin-top: 5px;">
-            Documentation should be updated whenever the bot's
-            infrastructure or administration process changes.
-        </p>
+        const sections = navLinks
+            .map(link => {
+                const id = link.getAttribute("href");
+                return document.querySelector(id);
+            })
+            .filter(Boolean);
 
-    </footer>
+        function updateActiveSection() {
 
-</main>
+            const scrollPosition =
+                window.scrollY + window.innerHeight * 0.30;
 
+            let currentSection = sections[0];
 
-<!-- =========================================
-     SCROLL SPY
-========================================= -->
+            for (const section of sections) {
 
-<script>
+                if (section.offsetTop <= scrollPosition) {
+                    currentSection = section;
+                }
 
-    const navLinks = document.querySelectorAll(".floating-nav a");
-
-    const sections = Array.from(navLinks).map(link => {
-        return document.querySelector(link.getAttribute("href"));
-    }).filter(Boolean);
-
-
-    function updateActiveSection() {
-
-        const scrollPosition =
-            window.scrollY + window.innerHeight * 0.32;
-
-        let currentSection = sections[0];
-
-        sections.forEach(section => {
-
-            if (section.offsetTop <= scrollPosition) {
-                currentSection = section;
             }
 
-        });
+            navLinks.forEach(link => {
 
+                const target =
+                    document.querySelector(
+                        link.getAttribute("href")
+                    );
 
-        navLinks.forEach(link => {
-
-            const target =
-                document.querySelector(
-                    link.getAttribute("href")
+                link.classList.toggle(
+                    "active",
+                    target === currentSection
                 );
 
-            link.classList.toggle(
-                "active",
-                target === currentSection
-            );
+            });
+        }
 
-        });
+        window.addEventListener(
+            "scroll",
+            updateActiveSection,
+            { passive: true }
+        );
 
-    }
+        window.addEventListener(
+            "load",
+            updateActiveSection
+        );
 
-
-    window.addEventListener(
-        "scroll",
-        updateActiveSection,
-        { passive: true }
-    );
-
-
-    window.addEventListener(
-        "load",
-        updateActiveSection
-    );
-
-</script>
+    </script>
 
 </body>
 </html>
+```
