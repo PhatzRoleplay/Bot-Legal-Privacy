@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhatzRP - Legal & Privacy Portal</title>
+    <style>
+        :root {
+            --bg-color: #0b0e14;
+            --card-bg: rgba(22, 27, 38, 0.8);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --accent-color: #5865f2;
+            --accent-hover: #4752c4;
+            --text-primary: #f2f3f5;
+            --text-secondary: #949ba4;
+            --badge-bg: rgba(88, 101, 242, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 40px 20px;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(88, 101, 242, 0.15), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(114, 137, 218, 0.05), transparent 40%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .server-badge {
+            display: inline-block;
+            background: var(--badge-bg);
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(88, 101, 242, 0.3);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ffffff 0%, #b9bbbe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: #ffffff;
+            font-size: 1.05rem;
+            margin: 20px 0 8px 0;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            margin: 10px 0 16px 20px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        li strong {
+            color: var(--text-primary);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <span class="server-badge">Phatz RP</span>
+        <h1>Bot Legal & Privacy Portal</h1>
+        <p class="subtitle">Official terms and data handling disclosures for Discord integration</p>
+    </header>
+
+    <div class="card">
+        <h2>Terms of Service</h2>
+        <p><strong>Effective Date:</strong> August 24, 2026</p>
+        <p>By interacting with or utilizing the custom Discord bot operated for the <strong>PhatzRP</strong> ("the Bot"), managed by <strong>wavyvato</strong> on behalf of <strong>Phatz RP Team</strong>, you agree to be bound by these Terms of Service.</p>
+        
+        <h3>1. Rules of Conduct & Exploits</h3>
+        <p>You agree not to exploit software bugs, abuse bot commands, flood command inputs, or attempt to compromise the Bot’s host infrastructure. Unauthorized access or attempted disruption will result in an immediate and permanent ban from both the Discord server and the FiveM server infrastructure.</p>
+        
+        <h3>2. Service Availability</h3>
+        <p>The Bot is provided on an "as-is" and "as-available" basis. Management reserves the right to modify, suspend, or terminate Bot operations at any time without prior notice for routine maintenance or structural upgrades.</p>
+        
+        <h3>3. Discord & Platform Guidelines</h3>
+        <p>Users must strictly adhere to Discord’s Terms of Service and Community Guidelines. Any violation of platform-wide rules committed through or involving this Bot may be escalated to Discord Trust & Safety.</p>
+    </div>
+
+    <div class="card">
+        <h2>Privacy Policy</h2>
+        <p><strong>Effective Date:</strong> August 24, 2026</p>
+
+        <h3>1. Information We Collect</h3>
+        <p>To deliver automated FiveM role integration, player moderation, and server management features, the Bot processes and stores specific data elements:</p>
+        <ul>
+            <li><strong>Discord Identifiers:</strong> Discord User ID, account handle, server nick, and role assignments.</li>
+            <li><strong>Game Identifiers:</strong> Steam Hex ID, License ID, Live ID, or FiveM player identifiers explicitly linked to your Discord ID.</li>
+            <li><strong>Audit Logs:</strong> Command interaction timestamps, warning/ban history, and whitelist application states.</li>
+        </ul>
+
+        <h3>2. Purpose of Data Processing</h3>
+        <p>Collected data is strictly utilized for core gaming server functionality, including syncing Discord permissions with in-game job/whitelist ranks, processing player moderation logs, and maintaining anti-cheat/whitelist security.</p>
+
+        <h3>3. Data Security & Third Parties</h3>
+        <p>All stored records are retained on private, password-protected databases managed by wavyvato. We do not sell, rent, trade, or transfer your data to external services, advertisers, or third parties.</p>
+
+        <h3>4. Data Retention & Erasure Requests</h3>
+        <p>Data is stored only for the duration of your membership in the community. If you depart the server and wish to request full deletion of your linked player profile data, please open a support ticket in the official PhatzRP FiveM Discord server https://discord.gg/phatzrp.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Phatz RP. Owned by Phatz482. All rights reserved.</p>
+    </footer>
+</div>
+
+</body>
+</html>
